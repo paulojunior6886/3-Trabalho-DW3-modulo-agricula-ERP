@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS pasto (
     pastoid INT GENERATED ALWAYS AS IDENTITY,
     descricao VARCHAR(100) NOT NULL,
     areatotal DECIMAL(10,2) NOT NULL,
+    deletado BOOLEAN NOT NULL DEFAULT FALSE,
     CONSTRAINT pasto_pk PRIMARY KEY (pastoid)
 );
 
@@ -19,6 +20,7 @@ CREATE TABLE IF NOT EXISTS piquete(
     latitude DECIMAL(10,6) NOT NULL,
     longitude DECIMAL(10,6) NOT NULL,
     pastoidfk INT NOT NULL,
+    deletado BOOLEAN NOT NULL DEFAULT FALSE,
     CONSTRAINT piquete_pk PRIMARY KEY (piqueteid),
     CONSTRAINT piquete_pasto_fk FOREIGN KEY (pastoidfk) REFERENCES pasto(pastoid)
 );
@@ -27,6 +29,7 @@ CREATE TABLE IF NOT EXISTS animal(
     animalid INT GENERATED ALWAYS AS IDENTITY,
     nome VARCHAR(100) NOT NULL,
     datanasc DATE NOT NULL,
+    deletado BOOLEAN NOT NULL DEFAULT FALSE,
     CONSTRAINT animal_pk PRIMARY KEY (animalid)
 );
 
@@ -36,6 +39,7 @@ CREATE TABLE IF NOT EXISTS alocado (
     piqueteidfk INT NOT NULL,
     datainicio DATE NOT NULL,
     datafinal DATE,
+    deletado BOOLEAN NOT NULL DEFAULT FALSE,
     CONSTRAINT alocado_pk PRIMARY KEY (alocadoid),
     CONSTRAINT alocado_animal_fk FOREIGN KEY (animalidfk) REFERENCES animal(animalid),
     CONSTRAINT alocado_piquete_fk FOREIGN KEY (piqueteidfk) REFERENCES piquete(piqueteid)
