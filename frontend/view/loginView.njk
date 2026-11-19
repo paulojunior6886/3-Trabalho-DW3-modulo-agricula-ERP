@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>Login — AgroPasto ERP</title>
+
+    <link rel="stylesheet"
+          href="/acreage/css/app.css">
+
+    <link rel="stylesheet"
+          href="/css/agropasto.css">
+</head>
+
+<body data-app="acreage">
+
+    <div class="auth">
+
+        <div class="art">
+
+            <div>
+                <h2>AgroPasto ERP</h2>
+
+                <p>
+                    Sistema de gestão agrícola
+                    e pastejo rotacionado.
+                </p>
+            </div>
+
+            <p>
+                Pastos, piquetes, animais e alocações
+                em um só lugar.
+            </p>
+
+        </div>
+
+        <div class="fm">
+
+            <form
+                id="formLogin"
+                class="box"
+                data-backend-url="{{ backendUrl }}">
+
+                <h1>Bem-vindo!</h1>
+                <p>Entre para acessar o sistema.</p>
+
+                <div class="field">
+                    <label for="username">Usuário</label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        required>
+                </div>
+
+                <div class="field">
+                    <label for="password">Senha</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        required>
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn pri"
+                    id="btnEntrar">
+                    Entrar
+                </button>
+
+                <p
+                    id="mensagemLogin"
+                    class="mensagem-erro"
+                    hidden>
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="/js/auth.js"></script>
+    <script src="/apps/login/vwLogin.js"></script>
+
+</body>
+</html>

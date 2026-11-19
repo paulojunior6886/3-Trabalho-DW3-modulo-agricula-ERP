@@ -1,0 +1,77 @@
+:root {
+  --accent: #3f6212;
+  --on-accent: #ffffff;
+
+  --bg: #f8f7f2;
+  --surface: #fffefa;
+  --surface-2: #efeee5;
+
+  --c1: #3f6212;
+  --c2: #a3b86c;
+  --c3: #b45309;
+  --c4: #0369a1;
+}
+
+/* Animação suave dos cartões */
+.card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(32, 50, 22, 0.08);
+}
+
+/* Botões */
+.btn {
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Entrada discreta dos cartões */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: aparecer 0.3s ease both;
+}
+
+/* Campos de formulário */
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+}
+
+/* Destaque de mensagens */
+.mensagem-erro {
+  color: var(--bad);
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* Prioriza acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .btn {
+    animation: none;
+    transition: none;
+    transform: none;
+  }
+}
