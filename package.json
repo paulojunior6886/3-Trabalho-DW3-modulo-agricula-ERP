@@ -1,0 +1,29 @@
+{
+  "name": "3-trabalho-dw3-modulo-agricula-erp",
+  "version": "1.0.0",
+  "description": "3º Trabalho DW3 - Módulo agrícola de pastejo rotacionado de um sistema ERP.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulojunior6886/3-Trabalho-DW3-modulo-agricula-ERP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/paulojunior6886/3-Trabalho-DW3-modulo-agricula-ERP/issues"
+  },
+  "homepage": "https://github.com/paulojunior6886/3-Trabalho-DW3-modulo-agricula-ERP#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "body-parser": "^2.4.0",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "nunjucks": "^3.2.4",
+    "pg": "^8.23.1"
+  }
+}
