@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>{{ title or "AgroPasto ERP" }}</title>
+
+    <link rel="stylesheet"
+          href="/acreage/css/app.css">
+
+    <link rel="stylesheet"
+          href="/css/agropasto.css">
+</head>
+
+<body
+    data-app="acreage"
+    data-api-url="{{ backendUrl }}"
+    data-protected="true">
+
+    <div class="app">
+
+        <!-- Menu lateral -->
+        <aside class="sb">
+
+            <a class="brand" href="/home">
+                <span class="mk">A</span>
+
+                <span>
+                    AgroPasto
+                    <small>Gestão de Pastejo</small>
+                </span>
+            </a>
+
+            <nav class="nav">
+
+                <div class="lbl">Sistema</div>
+
+                <a href="/home"
+                   {% if activeMenu == "home" %}
+                       aria-current="page"
+                   {% endif %}>
+                    Painel principal
+                </a>
+
+                <a href="/pastos"
+                   {% if activeMenu == "pastos" %}
+                       aria-current="page"
+                   {% endif %}>
+                    Pastos
+                </a>
+
+                <a href="/piquetes"
+                   {% if activeMenu == "piquetes" %}
+                       aria-current="page"
+                   {% endif %}>
+                    Piquetes
+                </a>
+
+                <a href="/animais"
+                   {% if activeMenu == "animais" %}
+                       aria-current="page"
+                   {% endif %}>
+                    Animais
+                </a>
+
+                <a href="/alocados"
+                   {% if activeMenu == "alocados" %}
+                       aria-current="page"
+                   {% endif %}>
+                    Alocações
+                </a>
+
+            </nav>
+
+            <div class="foot">
+                AgroPasto ERP — IFSP
+            </div>
+
+        </aside>
+
+        <!-- Área principal -->
+        <div class="main">
+
+            <header class="tb">
+
+                <button
+                    class="ib burger"
+                    data-burger
+                    aria-label="Abrir menu">
+                    ☰
+                </button>
+
+                <strong>AgroPasto ERP</strong>
+
+                <span class="sp"></span>
+
+                <button
+                    class="ib"
+                    data-theme-toggle
+                    aria-label="Alternar tema">
+                    ☾
+                </button>
+
+                <button
+                    class="btn"
+                    type="button"
+                    onclick="realizarLogout()">
+                    Sair
+                </button>
+
+            </header>
+
+            <main class="ct">
+
+                {% block conteudo %}
+                {% endblock %}
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <script src="/acreage/js/app.js"></script>
+    <script src="/js/auth.js"></script>
+
+    {% block scripts %}
+    {% endblock %}
+
+</body>
+</html>
