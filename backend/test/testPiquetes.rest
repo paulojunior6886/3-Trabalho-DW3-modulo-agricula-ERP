@@ -1,0 +1,75 @@
+### Login
+# @name login
+POST http://localhost:40000/Login
+Content-Type: application/json
+
+{
+    "username": "user1",
+    "password": "1234"
+}
+
+###
+
+@token = {{login.response.body.$.token}}
+
+### Cadastrar pasto de teste
+# @name novoPasto
+POST http://localhost:40000/insertPasto
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "descricao": "Pasto de Teste",
+    "areatotal": 30.00
+}
+
+###
+
+@pastoId = {{novoPasto.response.body.$.id}}
+
+### Cadastrar piquete
+# @name novoPiquete
+POST http://localhost:40000/insertPiquete
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "descricao": "Piquete Norte",
+    "latitude": -20.42,
+    "longitude": -49.97,
+    "pastoidfk": {{pastoId}}
+}
+
+###
+
+@piqueteId = {{novoPiquete.response.body.$.id}}
+
+### Listar piquetes
+GET http://localhost:40000/getAllPiquetes
+Authorization: Bearer {{token}}
+
+###
+
+### Buscar piquete
+GET http://localhost:40000/getPiqueteByID/{{piqueteId}}
+Authorization: Bearer {{token}}
+
+###
+
+### Atualizar piquete
+PUT http://localhost:40000/updatePiquete/{{piqueteId}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "descricao": "Piquete Norte Atualizado",
+    "latitude": -20.43,
+    "longitude": -49.98,
+    "pastoidfk": {{pastoId}}
+}
+
+###
+
+### Excluir piquete
+DELETE http://localhost:40000/deletePiquete/{{piqueteId}}
+Authorization: Bearer {{token}}

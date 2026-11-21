@@ -1,0 +1,54 @@
+{% extends "layout.njk" %}
+
+{% block conteudo %}
+
+<div class="ph">
+    <div>
+        <h1>Piquetes</h1>
+        <p>Áreas de divisão dos pastos.</p>
+    </div>
+
+    <a class="btn pri" href="/piquetes/novo">
+        + Novo piquete
+    </a>
+</div>
+
+<section class="card">
+
+    <div class="toolbar">
+        <label class="inp">
+            <input
+                type="search"
+                placeholder="Pesquisar piquetes..."
+                data-search="piquetes">
+        </label>
+    </div>
+
+    <div class="tw">
+        <table data-table="piquetes">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Descrição</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Pasto</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody id="tabelaPiquetes"></tbody>
+        </table>
+    </div>
+
+    <p id="mensagemPiquetes"
+       class="mensagem-erro"
+       hidden></p>
+
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="/apps/piquetes/vwPiquetes.js"></script>
+{% endblock %}

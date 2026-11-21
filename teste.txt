@@ -1,0 +1,30 @@
+Só dar um "npm ci"
+Pra baixar as dependências
+
+Depois um "docker compose up -d" pra subir os containers
+
+Acessa o pgadmin por "localhost:5050"
+Email: admin@example.com
+Senha: admin
+Senha postgres: pastejo123
+Só colocar o sql dentro do banco e executar
+
+# Variáveis postgres
+DB_HOST=localhost
+DB_NAME=pastejo_rotacionado
+DB_USER=postgres
+DB_PASSWORD=pastejo123
+DB_FORWARD_PORT=5434
+DB_PORT=5432
+# Variáveis do PgAdmin
+PGADMIN_EMAIL=admin@example.com
+PGADMIN_PASSWORD=admin
+PGADMIN_FORWARD_PORT=5050
+PGADMIN_PORT=80
+
+JWT_SECRET=072b308f657cb75de680532813ae9dcc3ba2d9e1978e990aa24c8dd1780313d8
+
+FRONTEND_PORT=40100
+SERVIDOR_DW3=http://localhost:40000
+
+^ .env é esse
