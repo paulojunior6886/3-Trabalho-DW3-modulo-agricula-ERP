@@ -1,0 +1,90 @@
+{% extends "layout.njk" %}
+
+{% block conteudo %}
+
+<div class="ph">
+    <div>
+        <h1>{{ title }}</h1>
+        <p>Dados do piquete e seu pasto.</p>
+    </div>
+</div>
+
+<section class="card">
+
+    <form
+        id="formPiquete"
+        data-id="{{ id }}"
+        data-modo="{{ modo }}">
+
+        <div class="form">
+
+            <div class="field full">
+                <label for="descricao">Descrição</label>
+                <input
+                    type="text"
+                    id="descricao"
+                    maxlength="100"
+                    required>
+            </div>
+
+            <div class="field">
+                <label for="latitude">Latitude</label>
+                <input
+                    type="number"
+                    id="latitude"
+                    step="0.000001"
+                    min="-90"
+                    max="90"
+                    required>
+            </div>
+
+            <div class="field">
+                <label for="longitude">Longitude</label>
+                <input
+                    type="number"
+                    id="longitude"
+                    step="0.000001"
+                    min="-180"
+                    max="180"
+                    required>
+            </div>
+
+            <div class="field full">
+                <label for="pastoidfk">Pasto</label>
+
+                <select id="pastoidfk" required>
+                    <option value="">
+                        Selecione um pasto
+                    </option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="row" style="margin-top:20px">
+
+            <button type="submit"
+                    class="btn pri"
+                    id="btnSalvar">
+                Salvar
+            </button>
+
+            <a class="btn" href="/piquetes">
+                Voltar
+            </a>
+
+        </div>
+
+        <p id="mensagemFormulario"
+           class="mensagem-erro"
+           hidden></p>
+
+    </form>
+
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="/apps/piquetes/vwPiqueteForm.js"></script>
+{% endblock %}

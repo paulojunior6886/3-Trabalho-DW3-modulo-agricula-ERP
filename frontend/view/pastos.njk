@@ -1,0 +1,56 @@
+{% extends "layout.njk" %}
+
+{% block conteudo %}
+
+<div class="ph">
+    <div>
+        <h1>Pastos</h1>
+        <p>Gerenciamento das áreas de pastagem.</p>
+    </div>
+
+    <a href="/pastos/novo" class="btn pri">
+        + Novo pasto
+    </a>
+</div>
+
+<section class="card">
+
+    <div class="toolbar">
+        <label class="inp">
+            <input
+                type="search"
+                placeholder="Pesquisar pastos..."
+                data-search="pastos">
+        </label>
+    </div>
+
+    <div class="tw">
+        <table data-table="pastos">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Descrição</th>
+                    <th>Área total (ha)</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody id="tabelaPastos"></tbody>
+
+        </table>
+    </div>
+
+    <p
+        id="mensagemPastos"
+        class="mensagem-erro"
+        hidden>
+    </p>
+
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="/apps/pastos/vwPastos.js"></script>
+{% endblock %}

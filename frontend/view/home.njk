@@ -1,0 +1,60 @@
+{% extends "layout.njk" %}
+
+{% block conteudo %}
+
+<div class="ph">
+    <div>
+        <h1>Painel principal</h1>
+
+        <p>
+            Bem-vindo ao AgroPasto ERP.
+            Acompanhe os registros do sistema.
+        </p>
+    </div>
+</div>
+
+<div class="g g4">
+
+    <div class="card kpi">
+        <span class="l">Pastos cadastrados</span>
+        <span class="v" id="totalPastos">—</span>
+        <a href="/pastos" class="btn">
+            Gerenciar pastos
+        </a>
+    </div>
+
+    <div class="card kpi">
+        <span class="l">Piquetes cadastrados</span>
+        <span class="v" id="totalPiquetes">—</span>
+        <a href="/piquetes" class="btn">
+            Gerenciar piquetes
+        </a>
+    </div>
+
+    <div class="card kpi">
+        <span class="l">Animais cadastrados</span>
+        <span class="v" id="totalAnimais">—</span>
+        <a href="/animais" class="btn">
+            Gerenciar animais
+        </a>
+    </div>
+
+    <div class="card kpi">
+        <span class="l">Alocações registradas</span>
+        <span class="v" id="totalAlocados">—</span>
+        <a href="/alocados" class="btn">
+            Gerenciar alocações
+        </a>
+    </div>
+
+</div>
+
+<p id="mensagemPainel"
+   class="mensagem-erro"
+   hidden></p>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="/apps/home/vwHome.js"></script>
+{% endblock %}

@@ -1,0 +1,67 @@
+### Login
+# @name login
+POST http://localhost:40000/Login
+Content-Type: application/json
+
+{
+    "username": "user1",
+    "password": "1234"
+}
+
+###
+
+@token = {{login.response.body.$.token}}
+
+### Cadastrar pasto
+# @name novoPasto
+POST http://localhost:40000/insertPasto
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "descricao": "Pasto Central",
+    "areatotal": 25.50
+}
+
+###
+
+@pastoId = {{novoPasto.response.body.$.id}}
+
+### Listar todos os pastos
+GET http://localhost:40000/getAllPastos
+Authorization: Bearer {{token}}
+
+###
+
+### Consultar pasto por ID
+GET http://localhost:40000/getPastoByID/{{pastoId}}
+Authorization: Bearer {{token}}
+
+###
+
+### Atualizar pasto
+PUT http://localhost:40000/updatePasto/{{pastoId}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "descricao": "Pasto Central Atualizado",
+    "areatotal": 28.00
+}
+
+###
+
+### Testar ID inválido
+GET http://localhost:40000/getPastoByID/abc
+Authorization: Bearer {{token}}
+
+###
+
+### Testar acesso sem JWT
+GET http://localhost:40000/getAllPastos
+
+###
+
+### Excluir pasto logicamente
+DELETE http://localhost:40000/deletePasto/{{pastoId}}
+Authorization: Bearer {{token}}
