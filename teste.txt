@@ -28,3 +28,7 @@ FRONTEND_PORT=40100
 SERVIDOR_DW3=http://localhost:40000
 
 ^ .env é esse
+
+
+Acessar banco: http://localhost:5050/browser/
+Acessar aplicação: http://localhost:40100/login

@@ -14,6 +14,11 @@ const CarregarIndicador = async (rota, elementoID) => {
         }
     );
 
+    if (resposta.status === 404) {
+        console.warn("API ainda não disponível:", rota);
+        return;
+    }
+
     const dados = await LerResposta(resposta);
 
     const elemento = document.getElementById(elementoID);
