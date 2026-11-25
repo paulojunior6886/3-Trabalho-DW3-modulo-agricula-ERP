@@ -1,0 +1,52 @@
+{% extends "layout.njk" %}
+
+{% block conteudo %}
+
+<div class="ph">
+    <div>
+        <h1>Animais</h1>
+        <p>Cadastro e gerenciamento do rebanho.</p>
+    </div>
+
+    <a href="/animais/novo" class="btn pri">
+        + Novo animal
+    </a>
+</div>
+
+<section class="card">
+
+    <div class="toolbar">
+        <label class="inp">
+            <input
+                type="search"
+                placeholder="Pesquisar animais..."
+                data-search="animais">
+        </label>
+    </div>
+
+    <div class="tw">
+        <table data-table="animais">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Data de nascimento</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody id="tabelaAnimais"></tbody>
+        </table>
+    </div>
+
+    <p id="mensagemAnimais"
+       class="mensagem-erro"
+       hidden></p>
+
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="/apps/animais/vwAnimais.js"></script>
+{% endblock %}
