@@ -1,0 +1,56 @@
+### Login
+# @name login
+POST http://localhost:40000/Login
+Content-Type: application/json
+
+{
+    "username": "user1",
+    "password": "1234"
+}
+
+###
+
+@token = {{login.response.body.$.token}}
+
+### Cadastrar animal
+# @name novoAnimal
+POST http://localhost:40000/insertAnimal
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "nome": "Bovino 001",
+    "datanasc": "2024-05-12"
+}
+
+###
+
+@animalId = {{novoAnimal.response.body.$.id}}
+
+### Listar animais
+GET http://localhost:40000/getAllAnimais
+Authorization: Bearer {{token}}
+
+###
+
+### Buscar animal
+GET http://localhost:40000/getAnimalByID/{{animalId}}
+Authorization: Bearer {{token}}
+
+###
+
+### Atualizar animal
+PUT http://localhost:40000/updateAnimal/{{animalId}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "nome": "Bovino 001 Atualizado",
+    "datanasc": "2024-05-12"
+}
+
+###
+
+### Excluir animal logicamente
+DELETE http://localhost:40000/deleteAnimal/{{animalId}}
+Authorization: Bearer {{token}}

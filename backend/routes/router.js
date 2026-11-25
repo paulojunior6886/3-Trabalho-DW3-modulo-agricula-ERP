@@ -7,8 +7,8 @@ const appLogin = require("../login/controller/ctlLogin");
 // Controllers dos módulos
 const appPastos = require("../pastos/controller/ctlPastos");
 const appPiquetes = require("../piquetes/controller/ctlPiquetes");
-//const appAnimais = require("../animais/controller/ctlAnimais");
-//const appAlocados = require("../alocados/controller/ctlAlocados");
+const appAnimais = require("../animais/controller/ctlAnimais");
+const appAlocados = require("../alocados/controller/ctlAlocados");
 
 // Rotas de Login e Logout
 routerApp.post("/Login", appLogin.Login);
@@ -80,7 +80,7 @@ routerApp.delete(
     appLogin.AutenticaJWT,
     appPiquetes.DeletePiquete
 );
-/*
+
 // ANIMAIS
 routerApp.get(
     "/getAllAnimais",
@@ -111,8 +111,8 @@ routerApp.delete(
     appLogin.AutenticaJWT,
     appAnimais.DeleteAnimal
 );
-*/
-/*
+
+
 // ALOCAÇÕES
 routerApp.get(
     "/getAllAlocados",
@@ -143,5 +143,5 @@ routerApp.delete(
     appLogin.AutenticaJWT,
     appAlocados.DeleteAlocado
 );
-*/
+
 module.exports = routerApp;
