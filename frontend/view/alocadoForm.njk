@@ -1,0 +1,89 @@
+{% extends "layout.njk" %}
+
+{% block conteudo %}
+
+<div class="ph">
+    <div>
+        <h1>{{ title }}</h1>
+        <p>Registro da alocação do animal.</p>
+    </div>
+</div>
+
+<section class="card">
+
+    <form id="formAlocado"
+          data-id="{{ id }}"
+          data-modo="{{ modo }}">
+
+        <div class="form">
+
+            <div class="field">
+                <label for="animalidfk">Animal</label>
+
+                <select id="animalidfk" required>
+                    <option value="">
+                        Selecione um animal
+                    </option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="piqueteidfk">Piquete</label>
+
+                <select id="piqueteidfk" required>
+                    <option value="">
+                        Selecione um piquete
+                    </option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="datainicio">
+                    Data de início
+                </label>
+
+                <input
+                    type="date"
+                    id="datainicio"
+                    required>
+            </div>
+
+            <div class="field">
+                <label for="datafinal">
+                    Data final (opcional)
+                </label>
+
+                <input
+                    type="date"
+                    id="datafinal">
+            </div>
+
+        </div>
+
+        <div class="row" style="margin-top:20px">
+
+            <button type="submit"
+                    id="btnSalvar"
+                    class="btn pri">
+                Salvar
+            </button>
+
+            <a href="/alocados" class="btn">
+                Voltar
+            </a>
+
+        </div>
+
+        <p id="mensagemFormulario"
+           class="mensagem-erro"
+           hidden></p>
+
+    </form>
+
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="/apps/alocados/vwAlocadoForm.js"></script>
+{% endblock %}

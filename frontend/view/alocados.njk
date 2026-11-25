@@ -1,0 +1,56 @@
+{% extends "layout.njk" %}
+
+{% block conteudo %}
+
+<div class="ph">
+    <div>
+        <h1>Alocações</h1>
+        <p>Controle de animais nos piquetes.</p>
+    </div>
+
+    <a class="btn pri" href="/alocados/novo">
+        + Nova alocação
+    </a>
+</div>
+
+<section class="card">
+
+    <div class="toolbar">
+        <label class="inp">
+            <input
+                type="search"
+                placeholder="Pesquisar alocações..."
+                data-search="alocados">
+        </label>
+    </div>
+
+    <div class="tw">
+        <table data-table="alocados">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Animal</th>
+                    <th>Piquete</th>
+                    <th>Data inicial</th>
+                    <th>Data final</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody id="tabelaAlocados"></tbody>
+
+        </table>
+    </div>
+
+    <p id="mensagemAlocados"
+       class="mensagem-erro"
+       hidden></p>
+
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="/apps/alocados/vwAlocados.js"></script>
+{% endblock %}
